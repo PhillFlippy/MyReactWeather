@@ -3,8 +3,10 @@ var ReactDOM = require('react-dom');
 
 
 var Examples = (props) => {
-  return(
+  return(<div>
     <h3>Examples component! </h3>
+    <h3>blah blah</h3>
+  </div>
   );
 };
 
