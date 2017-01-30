@@ -10,7 +10,7 @@ var ReactDOM = require('react-dom');
 // });
 var About = (props) => {
   return(
-    <h3>About component </h3>
+    <h3>About</h3>
   );
 };
 module.exports = About;
