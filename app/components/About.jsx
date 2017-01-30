@@ -9,8 +9,10 @@ var ReactDOM = require('react-dom');
 //   }
 // });
 var About = (props) => {
-  return(
+  return(<div>
     <h3>About</h3>
+    <p>This is an example of an api being used in ReactJS.</p>
+  </div>
   );
 };
 module.exports = About;
