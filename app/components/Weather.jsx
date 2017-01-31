@@ -6,7 +6,8 @@ var openWeatherMap = require('openweathermap');
 var Weather = React.createClass({
 getInitialState: function(){
   return {
-    isLoading: false
+    isLoading: false,
+    condition: 'fine'
   }
 },
   handleSearch: function(location){
@@ -26,20 +27,37 @@ getInitialState: function(){
         alert(errorMessage);
         that.setState({isLoading:false});
       });
+
+        openWeatherMap.getCondition(location).then(function(condition){
+          that.setState({
+            location: location,
+            condition: condition,
+            isLoading: false
+          });
+        }, function (errorMessage){
+          alert(errorMessage);
+          that.setState({isLoading:false});
+        });
   },
   render: function(){
-    var {isLoading, temp, location} = this.state;
+    var {isLoading, temp, location, condition} = this.state;
     function renderMessage(){
         if (isLoading){
-          return <h3>Fetching weather...</h3>;
+          return <h3 className="text-center">>Fetching weather...</h3>;
         } else if (temp && location){
-          return   <WeatherMessage location={location} temp={temp}/>;
+          return  (   <div className="callout secondary" data-closable=''>
+            <WeatherMessage location={location} temp={temp} condition={condition}/>
+            <button className="close-button" aria-label="Dismiss alert" type="button" data-close="">
+           <span aria-hidden="true">&times;</span>
+         </button>
+          </div>);
         }
     }
     return(<div>
-      <h3>Weather component </h3>
+      <h1 className="text-center">Get Weather</h1>
+  {renderMessage()}
       <WeatherForm onSearch={this.handleSearch}/>
-      {renderMessage()}
+
 
     </div>
     );

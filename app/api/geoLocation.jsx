@@ -15,5 +15,18 @@ module.exports= {
         throw new Error(res.data.message);
       });
 
+  },
+  getCondition: function(location){
+    var encodedLocation = encodeURIComponent(location);
+      var requesturl = `${OPEN_WEATHER_MAP_URL}&q=${encodedLocation}`;
+    return axios.get(requesturl).then(function(res){
+        if (res.data.cod && res.data.message){
+          throw new Error(res.data.message);
+        } else{
+          return res.data.weather.main;
+        }
+      }, function(res){
+        throw new Error(res.data.message);
+      });
   }
 };
