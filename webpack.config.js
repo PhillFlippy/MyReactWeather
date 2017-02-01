@@ -32,7 +32,8 @@ resolve: {
     Examples: 'app/components/Examples.jsx',
     WeatherForm:  'app/components/WeatherForm.jsx',
     WeatherMessage:  'app/components/WeatherMessage.jsx',
-    openweathermap: 'app/api/openWeatherMap.jsx'
+    openweathermap: 'app/api/openWeatherMap.jsx',
+    ErrorModal: 'app/components/ErrorModal.jsx'
   },
 extensions: ['', '.js', '.jsx']
 },

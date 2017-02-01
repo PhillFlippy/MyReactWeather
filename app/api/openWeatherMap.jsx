@@ -11,11 +11,12 @@ module.exports= {
         } else{
           return res.data.main.temp;
         }
-      }, function(res){
-        throw new Error(res.data.message);
-      });
+      },   function(err){
+          throw new Error('Cannot locate city.');
+        });
 
   },
+
   getCondition: function(location){
     var encodedLocation = encodeURIComponent(location);
       var requesturl = `${OPEN_WEATHER_MAP_URL}&q=${encodedLocation}`;
@@ -26,8 +27,8 @@ module.exports= {
 
           return  res.data.weather[0].main;
         }
-      }, function(res){
-        throw new Error(res.data.message);
-      });
+      },   function(err){
+          throw new Error('Cannot locate city.');
+        });
   }
 };

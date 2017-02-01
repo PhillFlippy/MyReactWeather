@@ -18,9 +18,9 @@ var WeatherMessage = ({temp, location, condition}) => {
            imgSrc="https://i.imgur.com/mtMDH6s.png";
         }
 
-    return(<div><h3> The temperature in <strong>{location}</strong> is currently {temp} and it is
+    return(<div><h3 className="text-center"> The temperature in <strong>{location}</strong> is currently {temp} and it is
          currently experiencing <strong>{condition}</strong></h3>
-            <image src={imgSrc} />
+            <image className="center" src={imgSrc} />
      </div>
     );
 };
