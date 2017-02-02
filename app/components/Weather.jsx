@@ -19,7 +19,10 @@ getInitialState: function(){
     // })
     var that = this;
     this.setState({isLoading:true,
-        errorMessage: undefined
+        errorMessage: undefined,
+        isLoading:true,
+        location: undefined,
+        temp:undefined
     });
       openWeatherMap.getTemp(location).then(function(temp){
         that.setState({
@@ -46,6 +49,21 @@ getInitialState: function(){
           errorMessage: e.message});
         });
   },
+  componentDidMount: function(){
+    var location = this.props.location.query.location;
+    if(location && location.length>0){
+      this.handleSearch(location);
+      window.location.hash = '#/';
+    }
+
+  },
+  componentWillReceiveProps: function(newProps){
+    var location = newProps.location.query.location;
+    if(location && location.length>0){
+      this.handleSearch(location);
+      window.location.hash = '#/';
+    }
+  },
   render: function(){
     var {isLoading, temp, location, condition, errorMessage} = this.state;
     function renderMessage(){
@@ -69,7 +87,7 @@ getInitialState: function(){
         }
     }
     return(<div>
-      <h1 className="text-center">Get Weather</h1>
+      <h1 className="text-center pageTitle">Get Weather</h1>
   {renderMessage()}
   {renderErrorMessage()}
       <WeatherForm onSearch={this.handleSearch}/>

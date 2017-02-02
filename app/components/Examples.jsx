@@ -4,7 +4,7 @@ var ReactDOM = require('react-dom');
 var {Link} = require("react-router");
 var Examples = (props) => {
   return(<div>
-    <h3 className="text-ceneter">Examples </h3>
+    <h3 className="text-ceneter pageTitle">Examples </h3>
     <p>Here are a few locations to try out</p>
     <ol>
       <li>
