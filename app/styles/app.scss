@@ -1,0 +1,28 @@
+$space-large: 2.5rem;
+$title-colour: #555;
+
+.pageTitle{
+    margin-top: $space-large;
+    margin-bottom: $space-large;
+    color: $title-colour;
+}
+
+input[type=search]{
+    box-shadow: none;
+}
+.active:hover{
+    color:red;
+}
+.active{
+    color:white;
+}
+body{
+    background-color: rgb(232, 245, 253);
+}
+.nav-br{
+    background-color: #4D728D;
+    color: black;
+}
+.nav-br:hover{
+    color:white;
+}
